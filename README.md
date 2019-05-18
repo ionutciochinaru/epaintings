@@ -1,2 +1,2 @@
 # epaintings
-Laravel ecommerce project
+Laravel Ecommerce project
