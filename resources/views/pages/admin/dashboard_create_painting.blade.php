@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputAuthorName">Subject</label>
-                    <input type="text" class="form-control" name="inputAuthorName" placeholder="Author Name">
+                    <input type="text" class="form-control" name="inputSubject" placeholder="Author Name">
                 </div>
                 <div class="form-group col-md-34">
                     <label for="inputDescription">Description</label>
