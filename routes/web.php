@@ -19,6 +19,7 @@ Route::get('/paintings', 'PaintingsController@paintings');
 //Admin Routs
 Route::get('/dashboardAdmin',  'Admin\AdminDashboardController@index')->middleware('admin');
 Route::get('/dashboardAdmin/paintings/',  'Admin\AdminDashboardController@allpaintings')->middleware('admin');
+Route::post('/dashboardAdmin/paintings/',  'Admin\AdminDashboardController@storePainting')->middleware('admin');
 Route::get('/dashboardAdmin/paintings/create',  'Admin\AdminDashboardController@createPainting')->middleware('admin');
 
 //Auth Routs

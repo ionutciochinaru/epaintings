@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Paintings;
 
 class AdminDashboardController extends Controller
 {
@@ -24,9 +25,9 @@ class AdminDashboardController extends Controller
      */
     public function allpaintings()
     {
-        /**$paintings = Paintings::all();**/
+        $paintings = Paintings::all();
 
-        return view('pages.admin.dashboard_paintings');
+        return view('pages.admin.dashboard_all_paintings',compact('paintings'));
     }
 
     /**
@@ -34,6 +35,26 @@ class AdminDashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function storePainting()
+    {
+        $paintings = new Paintings();
+
+        $paintings -> title = request('inputTitle');
+        $paintings -> subject = request('inputSubject');
+        $paintings -> authorName = request('inputAuthorName');
+        $paintings -> description = request('inputDescription');
+        $paintings -> materials = request('inputMaterials');
+        $paintings -> medium = request('inputMedium');
+        $paintings -> yearMade = request('inputYearMade');
+        $paintings -> price = request('inputPrice');
+        $paintings -> size = request('inputSize');
+        $paintings -> onSale = request('onSaleCheck');
+
+        $paintings->save();
+
+        return redirect('/dashboardAdmin/paintings');
+    }
+
     public function createPainting()
     {
         return view('pages.admin.dashboard_create_painting');

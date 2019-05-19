@@ -79,9 +79,12 @@
                 </ul>
             </div>
         </nav>
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
     </div>
 </div>
+
 </body>
 <script src="/js/app.js" charset="utf-8"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
