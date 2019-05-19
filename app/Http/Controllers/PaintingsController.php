@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class eProductsController extends Controller
+class paintingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class eProductsController extends Controller
      */
     public function index()
     {
-        return view('pages.product');
+
     }
 
     /**
@@ -21,11 +21,6 @@ class eProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *

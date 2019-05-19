@@ -10,10 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/products', 'eProductsController@index');
 
-Route::get('/dashboardAdmin',  'Admin\AdminDashboardController@index')->middleware('admin');
+
+//Web routs
 Route::get('/', 'HomeController@index');
+Route::get('/paintings', 'PaintingsController@paintings');
 
+//Admin Routs
+Route::get('/dashboardAdmin',  'Admin\AdminDashboardController@index')->middleware('admin');
+Route::get('/dashboardAdmin/paintings/',  'Admin\AdminDashboardController@allpaintings')->middleware('admin');
+Route::get('/dashboardAdmin/paintings/create',  'Admin\AdminDashboardController@createPainting')->middleware('admin');
+
+//Auth Routs
 Auth::routes();
 

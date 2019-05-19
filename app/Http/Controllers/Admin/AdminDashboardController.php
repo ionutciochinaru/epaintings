@@ -14,7 +14,7 @@ class AdminDashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboardAdmin');
+        return view('pages.admin.dashboardAdmin');
     }
 
     /**
@@ -22,6 +22,23 @@ class AdminDashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function allpaintings()
+    {
+        /**$paintings = Paintings::all();**/
+
+        return view('pages.admin.dashboard_paintings');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createPainting()
+    {
+        return view('pages.admin.dashboard_create_painting');
+    }
+
     public function create()
     {
         //
