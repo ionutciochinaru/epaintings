@@ -40,10 +40,19 @@
                 <td>{{$painting->medium}}</td>
                 <td>{{$painting->yearMade}}</td>
                 <td>{{$painting->price}}</td>
-                <td><button class="btn btn-danger">Delete</button></td>
-                <td><button class="btn btn-info">Edit</button></td>
+
             </tr>
             </tbody>
+            <form method="POST" action="/dashboardAdmin/paintings/{{$painting->id}}">
+                {{ method_field('DELETE') }}
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-danger m-2">DELETE</button>
+            </form>
+            <form method="POST" action="/dashboardAdmin/paintings/{{$painting->id}}/edit">
+                {{ method_field('PATCH') }}
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-info m-2">EDIT</button>
+            </form>
         </table>
     @endforeach
 @endsection

@@ -17,10 +17,13 @@ Route::get('/', 'HomeController@index');
 Route::get('/paintings', 'PaintingsController@paintings');
 
 //Admin Routs
-Route::get('/dashboardAdmin',  'Admin\AdminDashboardController@index')->middleware('admin');
-Route::get('/dashboardAdmin/paintings/',  'Admin\AdminDashboardController@allpaintings')->middleware('admin');
-Route::post('/dashboardAdmin/paintings/',  'Admin\AdminDashboardController@storePainting')->middleware('admin');
-Route::get('/dashboardAdmin/paintings/create',  'Admin\AdminDashboardController@createPainting')->middleware('admin');
+Route::get('/dashboardAdmin/', 'Admin\AdminDashboardController@index')->middleware('admin');
+Route::get('/dashboardAdmin/paintings/', 'Admin\AdminDashboardController@allpaintings')->middleware('admin');
+Route::get('/dashboardAdmin/paintings/create/', 'Admin\AdminDashboardController@createPainting')->middleware('admin');
+Route::post('/dashboardAdmin/paintings/', 'Admin\AdminDashboardController@storePainting')->middleware('admin');
+Route::post('/dashboardAdmin/paintings/{id}/edit/', 'Admin\AdminDashboardController@editPainting')->middleware('admin');
+Route::match(['put', 'patch'], '/dashboardAdmin/paintings/{id}/', 'Admin\AdminDashboardController@updatePainting')->middleware('admin');
+Route::delete('/dashboardAdmin/paintings/{id}/', 'Admin\AdminDashboardController@destroyPainting')->middleware('admin');
 
 //Auth Routs
 Auth::routes();

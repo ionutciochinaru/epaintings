@@ -93,9 +93,11 @@ class AdminDashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editPainting($id)
     {
-        //
+        $paintings = Paintings::findOrFail($id);
+
+        return view('pages.admin.dashboard_edit_painting', compact('paintings'));
     }
 
     /**
@@ -105,9 +107,24 @@ class AdminDashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatePainting(Request $request, $id)
     {
-        //
+        $paintings = Paintings::findOrFail($id);
+
+        $paintings -> title = request('inputTitle');
+        $paintings -> subject = request('inputSubject');
+        $paintings -> authorName = request('inputAuthorName');
+        $paintings -> description = request('inputDescription');
+        $paintings -> materials = request('inputMaterials');
+        $paintings -> medium = request('inputMedium');
+        $paintings -> yearMade = request('inputYearMade');
+        $paintings -> price = request('inputPrice');
+        $paintings -> size = request('inputSize');
+        $paintings -> onSale = request('onSaleCheck');
+
+        $paintings->save();
+
+        return redirect('/dashboardAdmin/paintings');
     }
 
     /**
@@ -116,8 +133,11 @@ class AdminDashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyPainting($id)
     {
-        //
+
+        Paintings :: findOrFail($id)->delete();
+
+        return redirect('/dashboardAdmin/paintings');
     }
 }
