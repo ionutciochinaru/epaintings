@@ -48,7 +48,7 @@
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-danger m-2">DELETE</button>
             </form>
-            <form method="POST" action="/dashboardAdmin/paintings/{{$painting->id}}/edit">
+            <form method="POST" action="/dashboardAdmin/paintings/{{$painting->id}}/edit/">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-info m-2">EDIT</button>

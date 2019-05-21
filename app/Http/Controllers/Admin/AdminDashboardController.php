@@ -95,7 +95,7 @@ class AdminDashboardController extends Controller
      */
     public function editPainting($id)
     {
-        $paintings = Paintings::findOrFail($id);
+        $paintings[] = Paintings::find($id);
 
         return view('pages.admin.dashboard_edit_painting', compact('paintings'));
     }
@@ -107,7 +107,7 @@ class AdminDashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updatePainting(Request $request, $id)
+    public function updatePainting($id)
     {
         $paintings = Paintings::findOrFail($id);
 

@@ -4,15 +4,16 @@
 
 @section('content')
     <body>
-    <div class="container mt-5 mb-3 text-center">
+    @foreach($paintings as $painting)
+
+        <div class="container mt-5 mb-3 text-center">
         <div class="card" style="width: 100%">
             <div class="card-body">
-                <h5 class="card-title">Edit the painting {{$painting->title}}</h5>
+                <h5 class="card-title">Edit the painting {{$painting->id}}</h5>
                 <p class="card-text">Edit the painting using the form below.</p>
             </div>
         </div>
     </div>
-
 
     <div class="container">
         <form method="POST" action="/dashboardAdmin/paintings/{{$painting->id}}">
@@ -50,7 +51,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputYearMade">Year Made</label>
-                    <input type="text" class="form-control" value="{$painting->yearMade}}" name="inputYearMade" placeholder="The Year the painting was made">
+                    <input type="text" class="form-control" value="{{$painting->yearMade}}" name="inputYearMade" placeholder="The Year the painting was made">
                 </div>
                 <div class="form-group col-md-3">
                     <div class="form-group">
@@ -89,5 +90,5 @@
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
     </div>
-
+@endforeach
 @endsection
