@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Paintings;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,9 +14,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
-    }
+        $paintings = Paintings::all();
 
+        return view('index',compact('paintings'));
+    }
     public function paintings(){
         return view('pages.product');
     }

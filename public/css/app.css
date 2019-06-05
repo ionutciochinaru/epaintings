@@ -74,7 +74,14 @@ body {
   text-align: left;
   background-color: #f8fafc;
 }
-
+@font-face {
+  font-family: Dosis-Light;
+  src: url(/fonts/Dosis-Light.ttf) format('truetype');
+}
+@font-face {
+  font-family: Dosis-Regular;
+  src: url(/fonts/Dosis-Regular.ttf) format("truetype");
+}
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
@@ -225,6 +232,32 @@ svg {
 
 table {
   border-collapse: collapse;
+  font-family: Roboto;
+}
+.image-over-div {
+  text-align: center;
+  display: block;
+  align-items: center;
+}
+
+.image-over {
+  background-size: cover;
+  padding: 150px 0;
+  position: relative;
+  text-align: center;
+  display: block;
+  align-items: center;
+}
+.image-over-div h1{
+  font-size: 7rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+}
+.image-over-div h2 {
+  font-size: 2rem;
+  color: #ffffff!important;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 caption {
