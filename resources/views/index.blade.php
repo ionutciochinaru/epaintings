@@ -26,7 +26,7 @@
                     @foreach($paintings as $painting)
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" data-src="{{url('uploads/'.$painting->filename)}}" alt="{{$painting->title}}" src="{{url('uploads/'.$painting->filename)}}" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                            <img class="card-img-top border-dark" data-src="{{url('uploads/'.$painting->filename)}}" alt="{{$painting->title}}" src="{{url('uploads/'.$painting->filename)}}" data-holder-rendered="true">
                             <div class="card-body">
                                 <h4 class="card-text">Title: {{$painting->title}}</h4>
                                 <h6 class="card-text">Description: {{$painting->description}}</h6>
@@ -36,7 +36,7 @@
                                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
                                     </div>
-                                    <small class="text-muted">Price: {{$painting->price}}$</small>
+                                    <small class="text">Price: {{$painting->price}}$</small>
                                 </div>
                             </div>
                         </div>

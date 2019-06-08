@@ -42,6 +42,16 @@ class AdminDashboardController extends Controller
     {
         $paintings = new Paintings();
 
+        $cover = $paintings -> filename = request('paintingPicture');
+        $extension = $cover->getClientOriginalExtension();
+
+        Storage::disk('public')->put($cover->getFilename().'.'.$extension,  File::get($cover));
+
+
+        $paintings->mime = $cover->getClientMimeType();
+        $paintings->original_filename = $cover->getClientOriginalName();
+        $paintings->filename = $cover->getFilename().'.'.$extension;
+
         $paintings -> title = request('inputTitle');
         $paintings -> subject = request('inputSubject');
         $paintings -> authorName = request('inputAuthorName');
@@ -52,7 +62,6 @@ class AdminDashboardController extends Controller
         $paintings -> price = request('inputPrice');
         $paintings -> size = request('inputSize');
         $paintings -> onSale = request('onSaleCheck');
-        $paintings -> filename = file('paintingPicture')->move('publicPages\images')->getClientOriginalName();
         $paintings->save();
 
         return redirect('/dashboardAdmin/paintings');
