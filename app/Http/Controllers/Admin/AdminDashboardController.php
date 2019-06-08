@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Paintings;
+
 
 class AdminDashboardController extends Controller
 {
@@ -49,7 +52,7 @@ class AdminDashboardController extends Controller
         $paintings -> price = request('inputPrice');
         $paintings -> size = request('inputSize');
         $paintings -> onSale = request('onSaleCheck');
-
+        $paintings -> filename = file('paintingPicture')->move('publicPages\images')->getClientOriginalName();
         $paintings->save();
 
         return redirect('/dashboardAdmin/paintings');
@@ -121,7 +124,6 @@ class AdminDashboardController extends Controller
         $paintings -> price = request('inputPrice');
         $paintings -> size = request('inputSize');
         $paintings -> onSale = request('onSaleCheck');
-
         $paintings->save();
 
         return redirect('/dashboardAdmin/paintings');

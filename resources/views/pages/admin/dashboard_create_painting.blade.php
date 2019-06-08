@@ -15,7 +15,7 @@
 
 
     <div class="container">
-        <form method="POST" action="/dashboardAdmin/paintings/">
+        <form method="POST" action="/dashboardAdmin/paintings/" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-row">
                 <div class="form-group col-md-3">
@@ -49,7 +49,8 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputYearMade">Year Made</label>
-                    <input type="text" class="form-control" name="inputYearMade" placeholder="The Year the painting was made">
+                    <input type="text" class="form-control" name="inputYearMade"
+                           placeholder="The Year the painting was made">
                 </div>
                 <div class="form-group col-md-3">
                     <div class="form-group">
@@ -67,12 +68,19 @@
                 </div>
 
             </div>
+            <div class="form-row mb-3">
+                <div class="col-auto">
+                    <label for="author">Painting Picture:</label>
+                    <input type="file" class="form-control" name="paintingPicture"/>
+                </div>
+            </div>
             <div class="form-row align-items-center">
                 <div class="col-auto">
 
                     <div class="input-group mb-2">
                         <label class="sr-only" for="inputPrice">Price</label>
-                        <input type="number" class="form-control" name="inputPrice" placeholder="Price $" id="inputPrice">
+                        <input type="number" class="form-control" name="inputPrice" placeholder="Price $"
+                               id="inputPrice">
                     </div>
                 </div>
                 <div class="col-auto">

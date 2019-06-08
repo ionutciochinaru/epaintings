@@ -16,15 +16,18 @@ class CreatePaintingsTable extends Migration
         Schema::create('paintings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->unique();
-            $table->string('description');
-            $table->string('authorName');
-            $table->string('size');
-            $table->string('subject');
-            $table->string('medium');
-            $table->string('materials');
-            $table->integer('yearMade');
-            $table->boolean('onSale');
-            $table->float('price');
+            $table->string('description')->nullable();
+            $table->string('authorName')->nullable();
+            $table->string('size')->nullable();
+            $table->string('subject')->nullable();
+            $table->string('medium')->nullable();
+            $table->string('materials')->nullable();
+            $table->integer('yearMade')->nullable();
+            $table->boolean('onSale')->nullable();
+            $table->float('price')->nullable();
+            $table->string('filename')->nullable();
+            $table->string('mime')->nullable();
+            $table->string('original_filename')->nullable();
             $table->timestamps();
         });
     }
